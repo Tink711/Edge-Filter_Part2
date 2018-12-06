@@ -16,5 +16,10 @@ namespace Edge_and_Filter
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

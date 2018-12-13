@@ -14,12 +14,43 @@ namespace Edge_and_Filter
     {
         public Form1()
         {
+            //initialize the form
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void LoadButton_Click(object sender, EventArgs e)
+        {
+            //get picture and copyToSquareCanvas
+        }
+
+        private void RainbowButton_Click(object sender, EventArgs e)
+        {
+            //calls manager for rainbow filter
+        }
+
+        private void CrazyButton_Click(object sender, EventArgs e)
+        {
+            //calls manager for Crazy filter
+        }
+
+        private void Laplacian3x3Button_Click(object sender, EventArgs e)
+        {
+            //calls manager for Laplacian 3x3 edge        }
+        }
+
+        private void Laplacian5x5Button_Click(object sender, EventArgs e)
+        {
+            //calls manager for Laplacian 5x5 edge 
+        }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            //save picture
         }
     }
 }

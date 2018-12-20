@@ -17,7 +17,7 @@ namespace Edge_and_Filter
         InterfaceOutput output = new ManagerInputOutput();
 
         Bitmap originalBitmap = null;
-        Bitmap previewBitmap = null;
+        Bitmap resultBitmap = null;
 
 
         public Form1()
@@ -35,9 +35,8 @@ namespace Edge_and_Filter
         {
             //get picture and copyToSquareCanvas
             originalBitmap = input.LoadImage();
-            previewBitmap = input.CopyToSquareCanevas(originalBitmap, PreviewPictureBox.Width);
-            PreviewPictureBox.Image = previewBitmap;
-
+            resultBitmap = originalBitmap;
+            input.LoadToPreview(PreviewPictureBox, originalBitmap);
         }
 
         private void RainbowButton_Click(object sender, EventArgs e)
@@ -62,6 +61,7 @@ namespace Edge_and_Filter
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            output.SaveImage(resultBitmap);
             //save picture
         }
     }

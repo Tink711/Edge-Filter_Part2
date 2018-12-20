@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 
 namespace Edge_and_Filter
 {
@@ -29,14 +30,41 @@ namespace Edge_and_Filter
             return originalBitmap;
         }
         //Put the image in the windows form pictureBox
-        public void LoadToPreview(Bitmap imagePreview)
+        public void LoadToPreview(PictureBox pictureBox, Bitmap imagePreview)
         {
-            throw new NotImplementedException();
+            Bitmap previewImage = CopyToSquareCanevas(imagePreview, pictureBox.Width);
+            pictureBox.Image = previewImage;
         }
         //Save and export the final image
         public void SaveImage(Bitmap finalPicture)
         {
-            throw new NotImplementedException();
+            if (finalPicture != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Specify a file name and file path";
+                sfd.Filter = "Png Images(*.png)|*.png|Jpeg Images(*.jpg)|*.jpg";
+                sfd.Filter += "|Bitmap Images(*.bmp)|*.bmp";
+
+                if (sfd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
+                    ImageFormat imgFormat = ImageFormat.Png;
+
+                    if (fileExtension == "BMP")
+                    {
+                        imgFormat = ImageFormat.Bmp;
+                    }
+                    else if (fileExtension == "JPG")
+                    {
+                        imgFormat = ImageFormat.Jpeg;
+                    }
+
+                    StreamWriter streamWriter = new StreamWriter(sfd.FileName, false);
+                    finalPicture.Save(streamWriter.BaseStream, imgFormat);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
+            }
         }
 
         //Resize the picture for the pictureBox on the windows form

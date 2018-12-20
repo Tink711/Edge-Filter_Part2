@@ -44,18 +44,21 @@
             // 
             // PreviewPictureBox
             // 
-            this.PreviewPictureBox.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.PreviewPictureBox.Location = new System.Drawing.Point(13, 13);
+            this.PreviewPictureBox.BackColor = System.Drawing.SystemColors.Control;
+            this.PreviewPictureBox.Location = new System.Drawing.Point(20, 20);
+            this.PreviewPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
-            this.PreviewPictureBox.Size = new System.Drawing.Size(600, 425);
+            this.PreviewPictureBox.Size = new System.Drawing.Size(900, 664);
+            this.PreviewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PreviewPictureBox.TabIndex = 0;
             this.PreviewPictureBox.TabStop = false;
             // 
             // LoadButton
             // 
-            this.LoadButton.Location = new System.Drawing.Point(631, 13);
+            this.LoadButton.Location = new System.Drawing.Point(946, 20);
+            this.LoadButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.LoadButton.Name = "LoadButton";
-            this.LoadButton.Size = new System.Drawing.Size(242, 43);
+            this.LoadButton.Size = new System.Drawing.Size(363, 67);
             this.LoadButton.TabIndex = 1;
             this.LoadButton.Text = "Load Image";
             this.LoadButton.UseVisualStyleBackColor = true;
@@ -63,9 +66,10 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(631, 395);
+            this.SaveButton.Location = new System.Drawing.Point(946, 617);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(242, 43);
+            this.SaveButton.Size = new System.Drawing.Size(363, 67);
             this.SaveButton.TabIndex = 2;
             this.SaveButton.Text = "Save Image";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -75,18 +79,21 @@
             // 
             this.groupBox1.Controls.Add(this.CrazyButton);
             this.groupBox1.Controls.Add(this.RainbowButton);
-            this.groupBox1.Location = new System.Drawing.Point(631, 74);
+            this.groupBox1.Location = new System.Drawing.Point(946, 116);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(242, 142);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox1.Size = new System.Drawing.Size(363, 222);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
             // CrazyButton
             // 
-            this.CrazyButton.Location = new System.Drawing.Point(24, 85);
+            this.CrazyButton.Location = new System.Drawing.Point(36, 133);
+            this.CrazyButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.CrazyButton.Name = "CrazyButton";
-            this.CrazyButton.Size = new System.Drawing.Size(197, 43);
+            this.CrazyButton.Size = new System.Drawing.Size(296, 67);
             this.CrazyButton.TabIndex = 4;
             this.CrazyButton.Text = "Crazy";
             this.CrazyButton.UseVisualStyleBackColor = true;
@@ -94,9 +101,10 @@
             // 
             // RainbowButton
             // 
-            this.RainbowButton.Location = new System.Drawing.Point(24, 27);
+            this.RainbowButton.Location = new System.Drawing.Point(36, 42);
+            this.RainbowButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.RainbowButton.Name = "RainbowButton";
-            this.RainbowButton.Size = new System.Drawing.Size(197, 43);
+            this.RainbowButton.Size = new System.Drawing.Size(296, 67);
             this.RainbowButton.TabIndex = 3;
             this.RainbowButton.Text = "Rainbow";
             this.RainbowButton.UseVisualStyleBackColor = true;
@@ -106,18 +114,21 @@
             // 
             this.groupBox2.Controls.Add(this.Laplacian5x5Button);
             this.groupBox2.Controls.Add(this.Laplacian3x3Button);
-            this.groupBox2.Location = new System.Drawing.Point(631, 233);
+            this.groupBox2.Location = new System.Drawing.Point(946, 364);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(242, 142);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.groupBox2.Size = new System.Drawing.Size(363, 222);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Edge Detection";
             // 
             // Laplacian5x5Button
             // 
-            this.Laplacian5x5Button.Location = new System.Drawing.Point(24, 84);
+            this.Laplacian5x5Button.Location = new System.Drawing.Point(36, 131);
+            this.Laplacian5x5Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Laplacian5x5Button.Name = "Laplacian5x5Button";
-            this.Laplacian5x5Button.Size = new System.Drawing.Size(197, 43);
+            this.Laplacian5x5Button.Size = new System.Drawing.Size(296, 67);
             this.Laplacian5x5Button.TabIndex = 6;
             this.Laplacian5x5Button.Text = "Laplacian 5x5";
             this.Laplacian5x5Button.UseVisualStyleBackColor = true;
@@ -125,9 +136,10 @@
             // 
             // Laplacian3x3Button
             // 
-            this.Laplacian3x3Button.Location = new System.Drawing.Point(24, 26);
+            this.Laplacian3x3Button.Location = new System.Drawing.Point(36, 41);
+            this.Laplacian3x3Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Laplacian3x3Button.Name = "Laplacian3x3Button";
-            this.Laplacian3x3Button.Size = new System.Drawing.Size(197, 43);
+            this.Laplacian3x3Button.Size = new System.Drawing.Size(296, 67);
             this.Laplacian3x3Button.TabIndex = 5;
             this.Laplacian3x3Button.Text = "Laplacian 3x3";
             this.Laplacian3x3Button.UseVisualStyleBackColor = true;
@@ -135,14 +147,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 450);
+            this.ClientSize = new System.Drawing.Size(1336, 703);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.LoadButton);
             this.Controls.Add(this.PreviewPictureBox);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);

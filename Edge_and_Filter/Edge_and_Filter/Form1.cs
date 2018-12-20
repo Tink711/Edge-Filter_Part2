@@ -12,6 +12,14 @@ namespace Edge_and_Filter
 {
     public partial class Form1 : Form
     {
+        //Instanciation of all interfaces and managers
+        InterfaceInput input = new ManagerInputOutput();
+        InterfaceOutput output = new ManagerInputOutput();
+
+        Bitmap originalBitmap = null;
+        Bitmap previewBitmap = null;
+
+
         public Form1()
         {
             //initialize the form
@@ -26,6 +34,10 @@ namespace Edge_and_Filter
         private void LoadButton_Click(object sender, EventArgs e)
         {
             //get picture and copyToSquareCanvas
+            originalBitmap = input.LoadImage();
+            previewBitmap = input.CopyToSquareCanevas(originalBitmap, PreviewPictureBox.Width);
+            PreviewPictureBox.Image = previewBitmap;
+
         }
 
         private void RainbowButton_Click(object sender, EventArgs e)

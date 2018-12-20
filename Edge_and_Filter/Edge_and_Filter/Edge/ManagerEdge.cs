@@ -14,11 +14,6 @@ namespace Edge_and_Filter
         {
             throw new NotImplementedException();
         }
-        //Resize the picture for the pictureBox on the windows form
-        public Bitmap CopyToSquareCanevas(Bitmap sourceBitmap, int canvasWidhtLength)
-        {
-            throw new NotImplementedException();
-        }
         //Retrive the matrix of Lalpacian3x3 and run the method ConvultionFilter to apply this filter
         public Bitmap Lalpacian3x3(Bitmap sourceBitmap, bool grayscale = true)
         {

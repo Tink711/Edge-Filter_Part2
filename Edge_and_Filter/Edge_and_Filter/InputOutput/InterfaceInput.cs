@@ -13,5 +13,7 @@ namespace Edge_and_Filter
         Bitmap LoadImage();
         //Put the image in the windows form pictureBox
         void LoadToPreview(Bitmap imagePreview);
+        //Resize the picture for the pictureBox on the windows form
+        Bitmap CopyToSquareCanevas(Bitmap sourceBitmap, int canvasWidhtLength);
     }
 }

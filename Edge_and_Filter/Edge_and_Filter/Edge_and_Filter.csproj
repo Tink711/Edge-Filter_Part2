@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Edge\InterfaceEdge.cs" />
     <Compile Include="Edge\ManagerEdge.cs" />
+    <Compile Include="Edge\Matrix.cs" />
     <Compile Include="Filter\InterfaceFilter.cs" />
     <Compile Include="Filter\ManagerFilter.cs" />
     <Compile Include="Form1.cs">

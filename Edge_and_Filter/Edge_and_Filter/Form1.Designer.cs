@@ -37,6 +37,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.Laplacian5x5Button = new System.Windows.Forms.Button();
             this.Laplacian3x3Button = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PreviewPictureBox)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -48,7 +49,7 @@
             this.PreviewPictureBox.Location = new System.Drawing.Point(20, 20);
             this.PreviewPictureBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PreviewPictureBox.Name = "PreviewPictureBox";
-            this.PreviewPictureBox.Size = new System.Drawing.Size(900, 664);
+            this.PreviewPictureBox.Size = new System.Drawing.Size(900, 707);
             this.PreviewPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PreviewPictureBox.TabIndex = 0;
             this.PreviewPictureBox.TabStop = false;
@@ -66,7 +67,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(946, 617);
+            this.SaveButton.Location = new System.Drawing.Point(946, 574);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(363, 67);
@@ -79,7 +80,7 @@
             // 
             this.groupBox1.Controls.Add(this.CrazyButton);
             this.groupBox1.Controls.Add(this.RainbowButton);
-            this.groupBox1.Location = new System.Drawing.Point(946, 116);
+            this.groupBox1.Location = new System.Drawing.Point(946, 100);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -114,7 +115,7 @@
             // 
             this.groupBox2.Controls.Add(this.Laplacian5x5Button);
             this.groupBox2.Controls.Add(this.Laplacian3x3Button);
-            this.groupBox2.Location = new System.Drawing.Point(946, 364);
+            this.groupBox2.Location = new System.Drawing.Point(946, 336);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -145,10 +146,22 @@
             this.Laplacian3x3Button.UseVisualStyleBackColor = true;
             this.Laplacian3x3Button.Click += new System.EventHandler(this.Laplacian3x3Button_Click);
             // 
+            // ResetButton
+            // 
+            this.ResetButton.Location = new System.Drawing.Point(946, 660);
+            this.ResetButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(363, 67);
+            this.ResetButton.TabIndex = 5;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1336, 703);
+            this.ClientSize = new System.Drawing.Size(1336, 749);
+            this.Controls.Add(this.ResetButton);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.SaveButton);
@@ -179,6 +192,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button Laplacian5x5Button;
         private System.Windows.Forms.Button Laplacian3x3Button;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 

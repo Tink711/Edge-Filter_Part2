@@ -15,9 +15,15 @@ namespace Edge_and_Filter
         //Instanciation of all interfaces and managers
         InterfaceInput input = new ManagerInputOutput();
         InterfaceOutput output = new ManagerInputOutput();
+        InterfaceFilter filter = new ManagerFilter();
+        InterfaceEdge edge = new ManagerEdge();
 
         Bitmap originalBitmap = null;
+        Bitmap middleBitmap = null;
         Bitmap resultBitmap = null;
+
+        Boolean filterIsApplied = false;
+        Boolean edgeIsApplied = false;
 
 
         public Form1()
@@ -35,34 +41,107 @@ namespace Edge_and_Filter
         {
             //get picture and copyToSquareCanvas
             originalBitmap = input.LoadImage();
-            resultBitmap = originalBitmap;
+            middleBitmap = originalBitmap;
             input.LoadToPreview(PreviewPictureBox, originalBitmap);
         }
 
         private void RainbowButton_Click(object sender, EventArgs e)
         {
-            //calls manager for rainbow filter
+            if (edgeIsApplied)
+            {
+                MessageBox.Show("You cannot apply a filter after an Edge Detection!");
+            }
+            else
+            { 
+                //calls manager for rainbow filter
+                putImageBackToOriginal();
+                middleBitmap = filter.RainbowFilter(new Bitmap(middleBitmap));
+                PreviewPictureBox.Image = middleBitmap;
+                filterIsApplied = true;
+            }
         }
 
         private void CrazyButton_Click(object sender, EventArgs e)
         {
-            //calls manager for Crazy filter
+            if (edgeIsApplied)
+            {
+                MessageBox.Show("You cannot apply a filter after an Edge Detection!");
+            }
+            else
+            { 
+                //calls manager for Crazy filter
+                putImageBackToOriginal();
+                middleBitmap = filter.ApplyFilterSwapDivide(new Bitmap(middleBitmap), 1, 1, 2, 1);
+                middleBitmap = filter.ApplyFilterSwap(new Bitmap(middleBitmap));
+                PreviewPictureBox.Image = middleBitmap;
+                filterIsApplied = true;
+            }
         }
 
         private void Laplacian3x3Button_Click(object sender, EventArgs e)
         {
-            //calls manager for Laplacian 3x3 edge        }
+            if (!filterIsApplied)
+            {
+                MessageBox.Show("First make sure you add a filter!");
+            }
+            else
+            {
+                //calls manager for Laplacian 3x3 edge        
+                putImageBackToAfterFilter();
+                resultBitmap = edge.Lalpacian3x3(new Bitmap(resultBitmap), false);
+                PreviewPictureBox.Image = resultBitmap;
+                edgeIsApplied = true;
+            }
         }
 
         private void Laplacian5x5Button_Click(object sender, EventArgs e)
         {
-            //calls manager for Laplacian 5x5 edge 
+            if (!filterIsApplied)
+            {
+                MessageBox.Show("First make sure you add a filter!");
+            }
+            else
+            {
+                //calls manager for Laplacian 5x5 edge 
+                putImageBackToAfterFilter();
+                resultBitmap = edge.Lalpacian5x5(new Bitmap(resultBitmap), false);
+                PreviewPictureBox.Image = resultBitmap;
+                edgeIsApplied = true;
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            output.SaveImage(resultBitmap);
-            //save picture
+            if (!edgeIsApplied)
+            {
+                MessageBox.Show("Please add a filter and an edge!");
+            }
+            else
+            {
+                //save picture
+                output.SaveImage(resultBitmap);
+            }
+            
+            
+        }
+        //put the image to the orignal picture
+        private void putImageBackToOriginal()
+        {
+            middleBitmap = input.CopyToSquareCanevas(originalBitmap, PreviewPictureBox.Width);
+            PreviewPictureBox.Image = middleBitmap;
+        }
+        //put the image to the after filter state
+        private void putImageBackToAfterFilter()
+        {
+            resultBitmap = input.CopyToSquareCanevas(middleBitmap, PreviewPictureBox.Width);
+            PreviewPictureBox.Image = resultBitmap;
+        }
+        //reset the image with the original image
+        private void ResetButton_Click(object sender, EventArgs e)
+        {
+            middleBitmap = originalBitmap;
+            resultBitmap = originalBitmap;
+            PreviewPictureBox.Image = originalBitmap;
         }
     }
 }

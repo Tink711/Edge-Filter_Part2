@@ -49,7 +49,7 @@ namespace Edge_and_Filter
         {
             if (edgeIsApplied)
             {
-                MessageBox.Show("You cannot apply a filter after an Edge Detection!");
+                DisplayCannotDoFilterAfterEdge();
             }
             else
             { 
@@ -65,7 +65,7 @@ namespace Edge_and_Filter
         {
             if (edgeIsApplied)
             {
-                MessageBox.Show("You cannot apply a filter after an Edge Detection!");
+                DisplayCannotDoFilterAfterEdge();
             }
             else
             { 
@@ -82,7 +82,7 @@ namespace Edge_and_Filter
         {
             if (!filterIsApplied)
             {
-                MessageBox.Show("First make sure you add a filter!");
+                DisplayCannotDoEdgeBeforeFiltering();
             }
             else
             {
@@ -98,8 +98,7 @@ namespace Edge_and_Filter
         {
             if (!filterIsApplied)
             {
-                MessageBox.Show("First make sure you add a filter!");
-            }
+                DisplayCannotDoEdgeBeforeFiltering();            }
             else
             {
                 //calls manager for Laplacian 5x5 edge 
@@ -121,9 +120,20 @@ namespace Edge_and_Filter
                 //save picture
                 output.SaveImage(resultBitmap);
             }
-            
-            
+           
         }
+        //Displays a dialog to notify the user that he needs to use a filter before doing edge detection
+        private void DisplayCannotDoEdgeBeforeFiltering()
+        {
+            MessageBox.Show("Before you can apply the edge detection you need to add a filter!");
+        }
+
+        //Displays a dialog to notify the user that he needs to use a filter before doing edge detection
+        private void DisplayCannotDoFilterAfterEdge()
+        {
+            MessageBox.Show("You cannot apply a filter after an Edge Detection!");
+        }
+
         //put the image to the orignal picture
         private void putImageBackToOriginal()
         {
@@ -142,6 +152,9 @@ namespace Edge_and_Filter
             middleBitmap = originalBitmap;
             resultBitmap = originalBitmap;
             PreviewPictureBox.Image = originalBitmap;
+            filterIsApplied = false;
+            edgeIsApplied = false;
+            
         }
     }
 }

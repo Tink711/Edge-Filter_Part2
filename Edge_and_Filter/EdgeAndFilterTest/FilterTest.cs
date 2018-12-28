@@ -2,6 +2,9 @@
 using System.Text;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NSubstitute;
+using Edge_and_Filter;
+using System.Drawing;
 
 namespace EdgeAndFilterTest
 {
@@ -59,11 +62,18 @@ namespace EdgeAndFilterTest
         #endregion
 
         [TestMethod]
-        public void TestMethod1()
+        public void RainbowFilterTestOutputPicture()
         {
-            //
-            // TODO: ajoutez ici la logique du test
-            //
+            var filterInterface = Substitute.For<InterfaceFilter>();
+            filterInterface = new ManagerFilter();
+
+            Bitmap originalBitmap = RetrieveImage.GetOriginalBitmap();
+
+            Bitmap bitmapForVerification = RetrieveImage.GetBitmapFromFile("Rainbow.jpg");
+
+            Bitmap filteredBitmap = filterInterface.RainbowFilter(originalBitmap);
+
+            Assert.AreEqual(bitmapForVerification, filteredBitmap);
         }
     }
 }

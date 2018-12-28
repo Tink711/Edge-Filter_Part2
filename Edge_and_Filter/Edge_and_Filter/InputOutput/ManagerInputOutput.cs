@@ -7,7 +7,7 @@ using System.Drawing.Imaging;
 
 namespace Edge_and_Filter
 {
-    class ManagerInputOutput : InterfaceInput, InterfaceOutput
+    public class ManagerInputOutput : InterfaceInput, InterfaceOutput
     {
         //Retrive image from computer folder
         public Bitmap LoadImage()

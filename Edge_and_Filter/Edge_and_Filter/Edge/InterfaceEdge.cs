@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Edge_and_Filter
 {
-    interface InterfaceEdge
+    public interface InterfaceEdge
     {
         //Apply the filters(calculation of the colors)
         Bitmap ConvolutionFilter(Bitmap sourceBitmap, double[,] filterMatrix, double factor=1, int bias=0, bool grayscale=false);

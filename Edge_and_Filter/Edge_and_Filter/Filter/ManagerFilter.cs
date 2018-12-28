@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Edge_and_Filter
 {
-    class ManagerFilter : InterfaceFilter
+    public class ManagerFilter : InterfaceFilter
     {
         //Divide the color green by 2
         public Bitmap ApplyFilterSwap(Bitmap bmp)

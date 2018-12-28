@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Edge_and_Filter
 {
-    class ManagerEdge : InterfaceEdge
+    public class ManagerEdge : InterfaceEdge
     {
         //Apply the filters(calculation of the colors)
         public Bitmap ConvolutionFilter(Bitmap sourceBitmap, double[,] filterMatrix, double factor = 1, int bias = 0, bool grayscale = false)

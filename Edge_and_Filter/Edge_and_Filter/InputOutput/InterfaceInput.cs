@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Edge_and_Filter
 {
-    interface InterfaceInput
+    public interface InterfaceInput
     {
         //Retrive image from computer folder
         Bitmap LoadImage();

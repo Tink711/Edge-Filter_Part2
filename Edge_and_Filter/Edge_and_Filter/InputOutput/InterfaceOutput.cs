@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Edge_and_Filter
 {
-    interface InterfaceOutput
+    public interface InterfaceOutput
     {
         //Save and export the final image
         void SaveImage(Bitmap finalPicture);

@@ -118,7 +118,9 @@ namespace Edge_and_Filter
             else
             {
                 //save picture
+                MessageBox.Show("If you cancel, your image will be reset anyways!");
                 output.SaveImage(resultBitmap);
+                ResetImageToOriginal();
             }
            
         }
@@ -149,12 +151,18 @@ namespace Edge_and_Filter
         //reset the image with the original image
         private void ResetButton_Click(object sender, EventArgs e)
         {
+            ResetImageToOriginal(); 
+        }
+
+        private void ResetImageToOriginal()
+        {
             middleBitmap = originalBitmap;
             resultBitmap = originalBitmap;
-            PreviewPictureBox.Image = originalBitmap;
+            putImageBackToOriginal();
+            //PreviewPictureBox.Image = originalBitmap;
             filterIsApplied = false;
             edgeIsApplied = false;
-            
         }
+
     }
 }

@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edge_and_Filter", "Edge_and_Filter\Edge_and_Filter.csproj", "{A5BFDB2F-E7E1-42BF-8EEF-98529FFCEFA6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdgeAndFilterTest", "EdgeAndFilterTest\EdgeAndFilterTest.csproj", "{B5254605-479C-466C-B344-99B104DE4FAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EdgeAndFilterTestN", "EdgeAndFilterTestN\EdgeAndFilterTestN.csproj", "{73357E9D-A385-4819-B670-3A59BD1046C3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{A5BFDB2F-E7E1-42BF-8EEF-98529FFCEFA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5BFDB2F-E7E1-42BF-8EEF-98529FFCEFA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5BFDB2F-E7E1-42BF-8EEF-98529FFCEFA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5254605-479C-466C-B344-99B104DE4FAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5254605-479C-466C-B344-99B104DE4FAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5254605-479C-466C-B344-99B104DE4FAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5254605-479C-466C-B344-99B104DE4FAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73357E9D-A385-4819-B670-3A59BD1046C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73357E9D-A385-4819-B670-3A59BD1046C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73357E9D-A385-4819-B670-3A59BD1046C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73357E9D-A385-4819-B670-3A59BD1046C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

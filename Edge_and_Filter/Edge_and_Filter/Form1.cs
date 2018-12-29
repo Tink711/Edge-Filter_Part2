@@ -37,6 +37,11 @@ namespace Edge_and_Filter
 
         }
 
+        public int GetWidthPictureBox()
+        {
+            return PreviewPictureBox.Width;
+        }
+
         private void LoadButton_Click(object sender, EventArgs e)
         {
             //get picture and copyToSquareCanvas

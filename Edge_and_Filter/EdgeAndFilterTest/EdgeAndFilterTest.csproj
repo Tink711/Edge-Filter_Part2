@@ -61,10 +61,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssertImage.cs" />
     <Compile Include="EdgeTest.cs" />
     <Compile Include="FilterTest.cs" />
     <Compile Include="InputOutputTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RetrieveImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

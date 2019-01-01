@@ -12,8 +12,6 @@ namespace Edge_and_Filter
         //Apply the Rainbow filter
         Bitmap RainbowFilter(Bitmap bmp);
         //Apply the Crazy filter
-        Bitmap ApplyFilterSwap(Bitmap bmp);
-        //Divide the color green by 2
-        Bitmap ApplyFilterSwapDivide(Bitmap bmp, int a, int r, int g, int b);
+        Bitmap CrazyFilter(Bitmap bmp);
     }
 }

@@ -9,7 +9,7 @@ namespace Edge_and_Filter
 {
     public class ManagerFilter : InterfaceFilter
     {
-        //Divide the color green by 2
+        //Apply the colors
         public Bitmap ApplyFilterSwap(Bitmap bmp)
         {
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
@@ -27,7 +27,7 @@ namespace Edge_and_Filter
             }
             return temp;
         }
-        //Apply the Crazy filter
+        //Divide the color green by 2
         public Bitmap ApplyFilterSwapDivide(Bitmap bmp, int a, int r, int g, int b)
         {
             Bitmap temp = new Bitmap(bmp.Width, bmp.Height);
@@ -44,6 +44,12 @@ namespace Edge_and_Filter
 
             }
             return temp;
+        }
+        //Apply the Crazy filter
+        public Bitmap CrazyFilter(Bitmap bmp)
+        {
+            Bitmap changedBitmap = ApplyFilterSwapDivide(bmp, 1, 1, 2, 1);
+            return ApplyFilterSwap(changedBitmap);
         }
         //Apply the Rainbow filter
         public Bitmap RainbowFilter(Bitmap bmp)

@@ -76,8 +76,7 @@ namespace Edge_and_Filter
             {
                 //calls manager for Crazy filter
                 PutImageBackToOriginal();
-                middleBitmap = filter.ApplyFilterSwapDivide(new Bitmap(middleBitmap), 1, 1, 2, 1);
-                middleBitmap = filter.ApplyFilterSwap(new Bitmap(middleBitmap));
+                middleBitmap = filter.CrazyFilter(new Bitmap(middleBitmap));
                 PreviewPictureBox.Image = middleBitmap;
                 filterIsApplied = true;
             }
@@ -103,7 +102,8 @@ namespace Edge_and_Filter
         {
             if (!filterIsApplied)
             {
-                DisplayCannotDoEdgeBeforeFiltering();            }
+                DisplayCannotDoEdgeBeforeFiltering();
+            }
             else
             {
                 //calls manager for Laplacian 5x5 edge 
@@ -116,17 +116,17 @@ namespace Edge_and_Filter
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            //if (!edgeIsApplied)
-            //{
-            //    MessageBox.Show("Please add a filter and an edge!");
-            //}
-            //else
-            //{
+            if (!edgeIsApplied)
+            {
+                MessageBox.Show("Please add a filter and an edge!");
+            }
+            else
+            {
                 //save picture
-                //MessageBox.Show("If you cancel, your image will be reset anyways!");
+                MessageBox.Show("If you cancel, your image will be reset anyways!");
                 output.SaveImage(resultBitmap);
                 ResetImageToOriginal();
-            //}
+            }
            
         }
         //Displays a dialog to notify the user that he needs to use a filter before doing edge detection

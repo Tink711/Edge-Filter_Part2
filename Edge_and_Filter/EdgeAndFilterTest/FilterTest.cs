@@ -68,14 +68,10 @@ namespace EdgeAndFilterTest
             filterInterface = new ManagerFilter();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
-
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Rainbow.jpg");
-
-            Bitmap filteredBitmap = filterInterface.RainbowFilter(originalBitmap);
+            Bitmap filteredBitmap = filterInterface.RainbowFilter(new Bitmap(originalBitmap));
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
-            //Assert.AreEqual(bitmapForVerification, filteredBitmap);
-            //AssertImage.AreEqual(bitmapForVerification, filteredBitmap, "not same!!!");
         }
     }
 }

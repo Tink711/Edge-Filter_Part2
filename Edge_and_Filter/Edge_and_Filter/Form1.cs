@@ -57,9 +57,9 @@ namespace Edge_and_Filter
                 DisplayCannotDoFilterAfterEdge();
             }
             else
-            { 
+            {
                 //calls manager for rainbow filter
-                putImageBackToOriginal();
+                PutImageBackToOriginal();
                 middleBitmap = filter.RainbowFilter(new Bitmap(middleBitmap));
                 PreviewPictureBox.Image = middleBitmap;
                 filterIsApplied = true;
@@ -73,9 +73,9 @@ namespace Edge_and_Filter
                 DisplayCannotDoFilterAfterEdge();
             }
             else
-            { 
+            {
                 //calls manager for Crazy filter
-                putImageBackToOriginal();
+                PutImageBackToOriginal();
                 middleBitmap = filter.ApplyFilterSwapDivide(new Bitmap(middleBitmap), 1, 1, 2, 1);
                 middleBitmap = filter.ApplyFilterSwap(new Bitmap(middleBitmap));
                 PreviewPictureBox.Image = middleBitmap;
@@ -116,17 +116,17 @@ namespace Edge_and_Filter
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (!edgeIsApplied)
-            {
-                MessageBox.Show("Please add a filter and an edge!");
-            }
-            else
-            {
+            //if (!edgeIsApplied)
+            //{
+            //    MessageBox.Show("Please add a filter and an edge!");
+            //}
+            //else
+            //{
                 //save picture
-                MessageBox.Show("If you cancel, your image will be reset anyways!");
+                //MessageBox.Show("If you cancel, your image will be reset anyways!");
                 output.SaveImage(resultBitmap);
                 ResetImageToOriginal();
-            }
+            //}
            
         }
         //Displays a dialog to notify the user that he needs to use a filter before doing edge detection
@@ -142,7 +142,7 @@ namespace Edge_and_Filter
         }
 
         //put the image to the orignal picture
-        private void putImageBackToOriginal()
+        private void PutImageBackToOriginal()
         {
             middleBitmap = input.CopyToSquareCanevas(originalBitmap, PreviewPictureBox.Width);
             PreviewPictureBox.Image = middleBitmap;
@@ -163,7 +163,7 @@ namespace Edge_and_Filter
         {
             middleBitmap = originalBitmap;
             resultBitmap = originalBitmap;
-            putImageBackToOriginal();
+            PutImageBackToOriginal();
             //PreviewPictureBox.Image = originalBitmap;
             filterIsApplied = false;
             edgeIsApplied = false;

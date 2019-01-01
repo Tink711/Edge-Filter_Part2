@@ -59,5 +59,49 @@ namespace EdgeAndFilterTest
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }
+
+        [TestMethod]
+        public void TestIfImageWidthIsSmallerThan4Pixels()
+        {
+            var filterInterface = Substitute.For<InterfaceFilter>();
+            filterInterface = new ManagerFilter();
+
+            Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
+
+            Bitmap testBitmap = new Bitmap(3, originalBitmap.Height);
+            Bitmap receivedAfterTest = filterInterface.RainbowFilter(testBitmap);
+            Assert.AreEqual(testBitmap, receivedAfterTest);
+        }
+
+        [TestMethod]
+        public void TestColorIfWidthNotDisibleBy4()
+        {
+            var filterInterface = Substitute.For<InterfaceFilter>();
+            filterInterface = new ManagerFilter();
+
+            Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
+
+            //Create the bitmap that will be sent to the filter
+            Bitmap testBitmap = new Bitmap(99, originalBitmap.Height);
+            //Create the bitmap that will be colored with the supplement color
+            Bitmap unifiedTestBitmapColor = new Bitmap(99, originalBitmap.Height);
+
+            //Color the full picture with the default supplemant color for external pixels
+            for (int i = 0; i < testBitmap.Width; i++)
+            {
+                for (int x = 0; x < testBitmap.Height; x++)
+                {
+                    unifiedTestBitmapColor.SetPixel(i, x, Color.FromArgb(testBitmap.GetPixel(i, x).R / 5, testBitmap.GetPixel(i, x).G / 5, testBitmap.GetPixel(i, x).B / 5));
+                }
+            }
+            //send the testBitmap to the filter
+            Bitmap receivedAfterTest = filterInterface.RainbowFilter(testBitmap);
+            //Determine the pixel to compare
+            int pixelToCheck = testBitmap.Width - 1;
+            //Compare pixel
+            Assert.AreEqual(unifiedTestBitmapColor.GetPixel(pixelToCheck, 1), receivedAfterTest.GetPixel(pixelToCheck, 1));
+        }
+
+
     }
 }

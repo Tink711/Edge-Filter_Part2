@@ -8,25 +8,17 @@ using System.Drawing;
 
 namespace EdgeAndFilterTest
 {
-    /// <summary>
-    /// Description résumée pour InputOutputTest
-    /// </summary>
+
     [TestClass]
     public class InputOutputTest
     {
         public InputOutputTest()
         {
-            //
-            // TODO: ajoutez ici la logique du constructeur
-            //
+
         }
 
         private TestContext testContextInstance;
 
-        /// <summary>
-        ///Obtient ou définit le contexte de test qui fournit
-        ///des informations sur la série de tests active, ainsi que ses fonctionnalités.
-        ///</summary>
         public TestContext TestContext
         {
             get
@@ -163,5 +155,78 @@ namespace EdgeAndFilterTest
             Assert.AreEqual(bpmHeightExpected, heigthResult);
 
         }
+
+
+        //==============================================================
+        //LOAD IMAGE
+        //==============================================================
+
+        [TestMethod]
+        public void TestLoadImageFromComputer()
+        {
+            var inputInterface = Substitute.For<InterfaceInput>();
+            inputInterface = new ManagerInputOutput();
+
+            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+            Bitmap bitmapToLoadBeforeCopyToSquare = inputInterface.LoadImage();
+            Bitmap bitmapToLoadAfterCopyToSquare = inputInterface.CopyToSquareCanevas(bitmapToLoadBeforeCopyToSquare, 900);
+
+            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, bitmapToLoadAfterCopyToSquare));
+
+        }
+
+        //==============================================================
+        //SAVE IMAGE
+        //==============================================================
+
+        [TestMethod]
+        public void TestSaveImageToComputerFormatJPEG()
+        {
+            var outputInterface = Substitute.For<InterfaceOutput>();
+            outputInterface = new ManagerInputOutput();
+
+            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+        
+            //Name the to be saved image "TestJPEG.jpg"
+            outputInterface.SaveImage(orginalBitmap);
+
+            Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestJPEG.jpg");
+
+            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+
+        }
+
+        [TestMethod]
+        public void TestSaveImageToComputerFormatPNG()
+        {
+            var outputInterface = Substitute.For<InterfaceOutput>();
+            outputInterface = new ManagerInputOutput();
+
+            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+
+            //Name the to be saved image "TestJPEG.jpg"
+            outputInterface.SaveImage(orginalBitmap);
+
+            Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestPNG.png");
+
+            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+        }
+
+        [TestMethod]
+        public void TestSaveImageToComputerFormatBMP()
+        {
+            var outputInterface = Substitute.For<InterfaceOutput>();
+            outputInterface = new ManagerInputOutput();
+
+            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+
+            //Name the to be saved image "TestBPM.bmp"
+            outputInterface.SaveImage(orginalBitmap);
+
+            Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestBMP.bmp");
+
+            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+        }
+
     }
 }

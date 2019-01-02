@@ -92,7 +92,7 @@ namespace Edge_and_Filter
             {
                 //calls manager for Laplacian 3x3 edge        
                 putImageBackToAfterFilter();
-                resultBitmap = edge.Lalpacian3x3(new Bitmap(resultBitmap), false);
+                resultBitmap = edge.Lalpacian3x3(new Bitmap(resultBitmap));
                 PreviewPictureBox.Image = resultBitmap;
                 edgeIsApplied = true;
             }
@@ -108,7 +108,7 @@ namespace Edge_and_Filter
             {
                 //calls manager for Laplacian 5x5 edge 
                 putImageBackToAfterFilter();
-                resultBitmap = edge.Lalpacian5x5(new Bitmap(resultBitmap), false);
+                resultBitmap = edge.Lalpacian5x5(new Bitmap(resultBitmap));
                 PreviewPictureBox.Image = resultBitmap;
                 edgeIsApplied = true;
             }

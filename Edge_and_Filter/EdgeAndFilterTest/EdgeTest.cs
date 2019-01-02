@@ -69,7 +69,7 @@ namespace EdgeAndFilterTest
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian3x3.jpg");
-            Bitmap filteredBitmap = edgeInterface.Lalpacian3x3(new Bitmap(originalBitmap), false);
+            Bitmap filteredBitmap = edgeInterface.Lalpacian3x3(new Bitmap(originalBitmap));
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }
@@ -82,7 +82,7 @@ namespace EdgeAndFilterTest
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian5x5.jpg");
-            Bitmap filteredBitmap = edgeInterface.Lalpacian5x5(new Bitmap(originalBitmap), false);
+            Bitmap filteredBitmap = edgeInterface.Lalpacian5x5(new Bitmap(originalBitmap));
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }

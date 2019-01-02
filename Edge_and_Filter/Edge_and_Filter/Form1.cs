@@ -100,33 +100,33 @@ namespace Edge_and_Filter
 
         private void Laplacian5x5Button_Click(object sender, EventArgs e)
         {
-            /*if (!filterIsApplied)
+            if (!filterIsApplied)
             {
                 DisplayCannotDoEdgeBeforeFiltering();
             }
             else
-            {*/
+            {
                 //calls manager for Laplacian 5x5 edge 
                 putImageBackToAfterFilter();
                 resultBitmap = edge.Lalpacian5x5(new Bitmap(resultBitmap), false);
                 PreviewPictureBox.Image = resultBitmap;
                 edgeIsApplied = true;
-            //}
+            }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            /*if (!edgeIsApplied)
+            if (!edgeIsApplied)
             {
                 MessageBox.Show("Please add a filter and an edge!");
             }
             else
-            {*/
+            {
                 //save picture
                 MessageBox.Show("If you cancel, your image will be reset anyways!");
                 output.SaveImage(resultBitmap);
                 ResetImageToOriginal();
-            //}
+            }
            
         }
         //Displays a dialog to notify the user that he needs to use a filter before doing edge detection

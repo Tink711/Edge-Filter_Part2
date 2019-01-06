@@ -64,8 +64,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void Laplacian3x3FilterTestOutputPicture()
         {
-            var edgeInterface = Substitute.For<InterfaceEdge>();
-            edgeInterface = new ManagerEdge();
+            var edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian3x3.jpg");
@@ -77,8 +76,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void Laplacian5x5FilterTestOutputPicture()
         {
-            var edgeInterface = Substitute.For<InterfaceEdge>();
-            edgeInterface = new ManagerEdge();
+            var edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian5x5.jpg");

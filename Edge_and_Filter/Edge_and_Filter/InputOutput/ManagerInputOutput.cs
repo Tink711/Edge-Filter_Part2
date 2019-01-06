@@ -50,11 +50,11 @@ namespace Edge_and_Filter
                     string fileExtension = Path.GetExtension(sfd.FileName).ToUpper();
                     ImageFormat imgFormat = ImageFormat.Png;
 
-                    if (fileExtension == "BMP")
+                    if (fileExtension == ".BMP")
                     {
                         imgFormat = ImageFormat.Bmp;
                     }
-                    else if (fileExtension == "JPG")
+                    else if (fileExtension == ".JPG")
                     {
                         imgFormat = ImageFormat.Jpeg;
                     }

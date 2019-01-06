@@ -39,8 +39,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithWidthGreaterThatCanvasAndHeight()
         {
-            var inputInterface = Substitute.For<InterfaceInput>();
-            inputInterface = new ManagerInputOutput();
+            var inputInterface = Substitute.For<ManagerInputOutput>();           
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -69,8 +68,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithHeightGreaterThatCanvasAndWidth()
         {
-            var inputInterface = Substitute.For<InterfaceInput>();
-            inputInterface = new ManagerInputOutput();
+            var inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 400f;
@@ -100,8 +98,7 @@ namespace EdgeAndFilterTest
         public void TestCopyToSquareCanvasWithAllSameSize()
         {
             
-            var inputInterface = Substitute.For<InterfaceInput>();
-            inputInterface = new ManagerInputOutput();
+            var inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -130,8 +127,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithSamllerCanvas()
         {
-            var inputInterface = Substitute.For<InterfaceInput>();
-            inputInterface = new ManagerInputOutput();
+            var inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -164,8 +160,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestLoadImageFromComputer()
         {
-            var inputInterface = Substitute.For<InterfaceInput>();
-            inputInterface = new ManagerInputOutput();
+            var inputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapToLoadBeforeCopyToSquare = inputInterface.LoadImage();
@@ -182,10 +177,10 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestSaveImageToComputerFormatJPEG()
         {
-            var outputInterface = Substitute.For<InterfaceOutput>();
-            outputInterface = new ManagerInputOutput();
+            var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+            Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptJPEG.jpg");
         
             //Name the to be saved image "TestJPEG.jpg"
             outputInterface.SaveImage(orginalBitmap);
@@ -199,33 +194,33 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestSaveImageToComputerFormatPNG()
         {
-            var outputInterface = Substitute.For<InterfaceOutput>();
-            outputInterface = new ManagerInputOutput();
+            var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+            Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptPNG.png");
 
-            //Name the to be saved image "TestJPEG.jpg"
+            //Name the to be saved image "TestPNG.png"
             outputInterface.SaveImage(orginalBitmap);
 
             Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestPNG.png");
 
-            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+            Assert.IsTrue(RetrieveImage.Equals(originalBitmapToTest, savedBitmap));
         }
 
         [TestMethod]
         public void TestSaveImageToComputerFormatBMP()
         {
-            var outputInterface = Substitute.For<InterfaceOutput>();
-            outputInterface = new ManagerInputOutput();
+            var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
+            Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptBMP.bmp");
 
             //Name the to be saved image "TestBPM.bmp"
             outputInterface.SaveImage(orginalBitmap);
 
             Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestBMP.bmp");
 
-            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+            Assert.IsTrue(RetrieveImage.Equals(originalBitmapToTest, savedBitmap));
         }
 
     }

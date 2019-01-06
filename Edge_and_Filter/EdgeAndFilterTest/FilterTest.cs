@@ -37,8 +37,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void RainbowFilterTestOutputPicture()
         {
-            var filterInterface = Substitute.For<InterfaceFilter>();
-            filterInterface = new ManagerFilter();
+            var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Rainbow.jpg");
@@ -50,8 +49,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void CrazyFilterTestOutputPicture()
         {
-            var filterInterface = Substitute.For<InterfaceFilter>();
-            filterInterface = new ManagerFilter();
+            var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Crazy.jpg");
@@ -63,8 +61,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestIfImageWidthIsSmallerThan4Pixels()
         {
-            var filterInterface = Substitute.For<InterfaceFilter>();
-            filterInterface = new ManagerFilter();
+            var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
 
@@ -76,8 +73,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestColorIfWidthNotDisibleBy4()
         {
-            var filterInterface = Substitute.For<InterfaceFilter>();
-            filterInterface = new ManagerFilter();
+            var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
 

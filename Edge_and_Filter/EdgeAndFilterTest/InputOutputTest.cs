@@ -179,15 +179,14 @@ namespace EdgeAndFilterTest
         {
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
-            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptJPEG.jpg");
         
             //Name the to be saved image "TestJPEG.jpg"
-            outputInterface.SaveImage(orginalBitmap);
+            outputInterface.SaveImage(originalBitmapToTest);
 
             Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestJPEG.jpg");
 
-            Assert.IsTrue(RetrieveImage.Equals(orginalBitmap, savedBitmap));
+            Assert.IsTrue(RetrieveImage.Equals(originalBitmapToTest, savedBitmap));
 
         }
 
@@ -196,11 +195,10 @@ namespace EdgeAndFilterTest
         {
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
-            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptPNG.png");
 
             //Name the to be saved image "TestPNG.png"
-            outputInterface.SaveImage(orginalBitmap);
+            outputInterface.SaveImage(originalBitmapToTest);
 
             Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestPNG.png");
 
@@ -212,11 +210,10 @@ namespace EdgeAndFilterTest
         {
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
-            Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptBMP.bmp");
 
             //Name the to be saved image "TestBPM.bmp"
-            outputInterface.SaveImage(orginalBitmap);
+            outputInterface.SaveImage(originalBitmapToTest);
 
             Bitmap savedBitmap = RetrieveImage.RetrieveImageFromPath("TestBMP.bmp");
 

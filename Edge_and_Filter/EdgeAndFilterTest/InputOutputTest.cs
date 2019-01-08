@@ -157,6 +157,7 @@ namespace EdgeAndFilterTest
         //LOAD IMAGE
         //==============================================================
 
+        //Need to Load the image "egypt.jpg inside the folder "EdgeAndFilterTest/bin/Debug/images"
         [TestMethod]
         public void TestLoadImageFromComputer()
         {
@@ -174,9 +175,11 @@ namespace EdgeAndFilterTest
         //SAVE IMAGE
         //==============================================================
 
+        //Testing the jpg format. Need to save under the name "TestJPEG.jpg"  in the folder "EdgeAndFilterTest/bin/Debug/images"
         [TestMethod]
         public void TestSaveImageToComputerFormatJPEG()
         {
+            //Substitute for ManagerInputOuput
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptJPEG.jpg");
@@ -190,9 +193,11 @@ namespace EdgeAndFilterTest
 
         }
 
+        //Testing the png format. Need to save under the name "TestPNG.png"  in the folder "EdgeAndFilterTest/bin/Debug/images"
         [TestMethod]
         public void TestSaveImageToComputerFormatPNG()
         {
+            //Substitute for ManagerInputOuput
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptPNG.png");
@@ -205,9 +210,11 @@ namespace EdgeAndFilterTest
             Assert.IsTrue(RetrieveImage.Equals(originalBitmapToTest, savedBitmap));
         }
 
+        //Testing the bmp format. Need to save under the name "TestBMP.bmp"  in the folder "EdgeAndFilterTest/bin/Debug/images"
         [TestMethod]
         public void TestSaveImageToComputerFormatBMP()
         {
+            //Substitute for ManagerInputOutput
             var outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptBMP.bmp");

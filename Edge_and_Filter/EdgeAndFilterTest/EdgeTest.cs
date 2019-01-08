@@ -22,11 +22,6 @@ namespace EdgeAndFilterTest
         }
 
         private TestContext testContextInstance;
-
-        /// <summary>
-        ///Obtient ou définit le contexte de test qui fournit
-        ///des informations sur la série de tests active, ainsi que ses fonctionnalités.
-        ///</summary>
         public TestContext TestContext
         {
             get
@@ -39,31 +34,14 @@ namespace EdgeAndFilterTest
             }
         }
 
-        #region Attributs de tests supplémentaires
-        //
-        // Vous pouvez utiliser les attributs supplémentaires suivants lorsque vous écrivez vos tests :
-        //
-        // Utilisez ClassInitialize pour exécuter du code avant d'exécuter le premier test de la classe
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Utilisez ClassCleanup pour exécuter du code une fois que tous les tests d'une classe ont été exécutés
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Utilisez TestInitialize pour exécuter du code avant d'exécuter chaque test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Utilisez TestCleanup pour exécuter du code après que chaque test a été exécuté
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
+        //=========================================
+        //Edges tests
+        //=========================================
+        //Testing the edge laplacian 3x3 by applying the edge detection and comparing with an image with the expected result
         [TestMethod]
         public void Laplacian3x3FilterTestOutputPicture()
         {
+            //Substitute for ManagerEdge
             var edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
@@ -72,10 +50,11 @@ namespace EdgeAndFilterTest
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }
-
+        //Testing the edge laplacian 5x5 by applying the edge detection and comparing with an image with the expected result
         [TestMethod]
         public void Laplacian5x5FilterTestOutputPicture()
         {
+            //Substitute for ManagerEdge
             var edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();

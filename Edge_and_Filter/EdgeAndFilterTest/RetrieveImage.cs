@@ -11,17 +11,19 @@ namespace EdgeAndFilterTest
 {
     public class RetrieveImage
     {
+        //Retrieve our "original" image
         public static Bitmap RetrieveOriginalPicture()
         {
             ManagerInputOutput manager = new ManagerInputOutput();
             return manager.CopyToSquareCanevas(RetrieveImageFromPath("egypt.jpg"), 900);
         }
+        //Retrieve a specific file from the EdgeAndFilterTest/bin/Debug/images folder
         public static Bitmap RetrieveImageFromPath(string filename)
         {
             StreamReader streamReader = new StreamReader("images/"+filename);
             return (Bitmap)Bitmap.FromStream(streamReader.BaseStream);
         }
-
+        //Verify is all the pixels of 2 images are the same
         public static bool Equals(Bitmap bmp1, Bitmap bmp2)
         {
             if (!bmp1.Size.Equals(bmp2.Size))

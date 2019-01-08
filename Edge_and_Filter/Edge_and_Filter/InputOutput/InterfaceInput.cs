@@ -10,10 +10,8 @@ namespace Edge_and_Filter
 {
     public interface InterfaceInput
     {
-        //Retrive image from computer folder
+        //Retrieve image from computer folder
         Bitmap LoadImage();
-        //Put the image in the windows form pictureBox
-        void LoadToPreview(PictureBox pictureBox, Bitmap imagePreview);
         //Resize the picture for the pictureBox on the windows form
         Bitmap CopyToSquareCanevas(Bitmap sourceBitmap, int canvasWidhtLength);
     }

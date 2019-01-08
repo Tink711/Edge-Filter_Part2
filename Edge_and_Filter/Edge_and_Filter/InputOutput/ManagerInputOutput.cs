@@ -9,7 +9,7 @@ namespace Edge_and_Filter
 {
     public class ManagerInputOutput : InterfaceInput, InterfaceOutput
     {
-        //Retrive image from computer folder
+        //Retrieve image from computer
         public Bitmap LoadImage()
         {
 
@@ -29,12 +29,7 @@ namespace Edge_and_Filter
 
             return originalBitmap;
         }
-        //Put the image in the windows form pictureBox
-        public void LoadToPreview(PictureBox pictureBox, Bitmap imagePreview)
-        {
-            Bitmap previewImage = CopyToSquareCanevas(imagePreview, pictureBox.Width);
-            pictureBox.Image = previewImage;
-        }
+
         //Save and export the final image
         public void SaveImage(Bitmap finalPicture)
         {

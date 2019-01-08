@@ -117,7 +117,7 @@ namespace Edge_and_Filter
 
             return resultBitmap;
         }
-        //Retrive the matrix of Lalpacian3x3 and run the method ConvultionFilter to apply this filter
+        //Retrieve the matrix of Lalpacian3x3 and run the method ConvolutionFilter to apply this filter
         public Bitmap Lalpacian3x3(Bitmap sourceBitmap)
         {
             Bitmap resultBitmap = ConvolutionFilter(sourceBitmap,
@@ -125,7 +125,7 @@ namespace Edge_and_Filter
 
             return resultBitmap;
         }
-        //Retrive the matrix of Lalpacian5x5 and run the method ConvultionFilter to apply this filter
+        //Retrieve the matrix of Lalpacian5x5 and run the method ConvolutionFilter to apply this filter
         public Bitmap Lalpacian5x5(Bitmap sourceBitmap)
         {
             Bitmap resultBitmap = ConvolutionFilter(sourceBitmap,

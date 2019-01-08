@@ -33,10 +33,11 @@ namespace EdgeAndFilterTest
         }
 
 
-
+        //Testing the Rainsbow filter by applying the filter on a bitmap and comparing with one that has the expected result
         [TestMethod]
         public void RainbowFilterTestOutputPicture()
         {
+            //Substitute for the managerFilter
             var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
@@ -45,10 +46,11 @@ namespace EdgeAndFilterTest
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }
-
+        //Testing the Crazy filter by applying the filter on a bitmap and comparing with one that has the expected result
         [TestMethod]
         public void CrazyFilterTestOutputPicture()
         {
+            //Substitute for the ManagerFilter
             var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
@@ -57,10 +59,11 @@ namespace EdgeAndFilterTest
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
         }
-
+        //Testing with an image with less that 4 pixels with the Rainbow filter and expecting to receive the same image that we sent
         [TestMethod]
         public void TestIfImageWidthIsSmallerThan4Pixels()
         {
+            //Substitute for the ManagerFilter
             var filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
@@ -69,7 +72,7 @@ namespace EdgeAndFilterTest
             Bitmap receivedAfterTest = filterInterface.RainbowFilter(testBitmap);
             Assert.AreEqual(testBitmap, receivedAfterTest);
         }
-
+        //Test
         [TestMethod]
         public void TestColorIfWidthNotDisibleBy4()
         {

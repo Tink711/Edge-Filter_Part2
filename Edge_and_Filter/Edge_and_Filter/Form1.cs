@@ -36,20 +36,20 @@ namespace Edge_and_Filter
         {
 
         }
-
+        //Used for the unit tests
         public int GetWidthPictureBox()
         {
             return PreviewPictureBox.Width;
         }
-
+        //Load image button
         private void LoadButton_Click(object sender, EventArgs e)
         {
             //get picture and copyToSquareCanvas
             originalBitmap = input.LoadImage();
             middleBitmap = originalBitmap;
-            input.LoadToPreview(PreviewPictureBox, originalBitmap);
-        }
-
+            PutImageBackToOriginal();
+        } 
+        //Apply the Rainbow filter
         private void RainbowButton_Click(object sender, EventArgs e)
         {
             if (edgeIsApplied)
@@ -65,7 +65,7 @@ namespace Edge_and_Filter
                 filterIsApplied = true;
             }
         }
-
+        //Apply the Crazy filter
         private void CrazyButton_Click(object sender, EventArgs e)
         {
             if (edgeIsApplied)
@@ -81,7 +81,8 @@ namespace Edge_and_Filter
                 filterIsApplied = true;
             }
         }
-
+        //Edges only if filters applied before
+        //Apply laplacian 3x3 edge detection
         private void Laplacian3x3Button_Click(object sender, EventArgs e)
         {
             if (!filterIsApplied)
@@ -97,7 +98,7 @@ namespace Edge_and_Filter
                 edgeIsApplied = true;
             }
         }
-
+        //Apply laplacian 5x5 edge detection
         private void Laplacian5x5Button_Click(object sender, EventArgs e)
         {
             if (!filterIsApplied)
@@ -113,7 +114,7 @@ namespace Edge_and_Filter
                 edgeIsApplied = true;
             }
         }
-
+        //Save button only if filter and edge applied
         private void SaveButton_Click(object sender, EventArgs e)
         {
             if (!edgeIsApplied)
@@ -158,7 +159,7 @@ namespace Edge_and_Filter
         {
             ResetImageToOriginal(); 
         }
-
+        //Clears all filters and edges to put back to the original image
         private void ResetImageToOriginal()
         {
             middleBitmap = originalBitmap;

@@ -39,7 +39,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithWidthGreaterThatCanvasAndHeight()
         {
-            var inputInterface = Substitute.For<ManagerInputOutput>();           
+            InterfaceInput inputInterface = Substitute.For<ManagerInputOutput>();           
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -68,7 +68,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithHeightGreaterThatCanvasAndWidth()
         {
-            var inputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceInput inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 400f;
@@ -98,7 +98,7 @@ namespace EdgeAndFilterTest
         public void TestCopyToSquareCanvasWithAllSameSize()
         {
             
-            var inputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceInput inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -127,7 +127,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestCopyToSquareCanvasWithSamllerCanvas()
         {
-            var inputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceInput inputInterface = Substitute.For<ManagerInputOutput>();
 
             //Initialize sizes
             float bpmHeight = 200f;
@@ -161,7 +161,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestLoadImageFromComputer()
         {
-            var inputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceInput inputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap orginalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapToLoadBeforeCopyToSquare = inputInterface.LoadImage();
@@ -180,7 +180,7 @@ namespace EdgeAndFilterTest
         public void TestSaveImageToComputerFormatJPEG()
         {
             //Substitute for ManagerInputOuput
-            var outputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceOutput outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptJPEG.jpg");
         
@@ -198,7 +198,7 @@ namespace EdgeAndFilterTest
         public void TestSaveImageToComputerFormatPNG()
         {
             //Substitute for ManagerInputOuput
-            var outputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceOutput outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptPNG.png");
 
@@ -215,7 +215,7 @@ namespace EdgeAndFilterTest
         public void TestSaveImageToComputerFormatBMP()
         {
             //Substitute for ManagerInputOutput
-            var outputInterface = Substitute.For<ManagerInputOutput>();
+            InterfaceOutput outputInterface = Substitute.For<ManagerInputOutput>();
 
             Bitmap originalBitmapToTest = RetrieveImage.RetrieveImageFromPath("egyptBMP.bmp");
 

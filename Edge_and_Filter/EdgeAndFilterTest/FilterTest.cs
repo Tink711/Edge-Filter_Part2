@@ -38,7 +38,7 @@ namespace EdgeAndFilterTest
         public void RainbowFilterTestOutputPicture()
         {
             //Substitute for the managerFilter
-            var filterInterface = Substitute.For<ManagerFilter>();
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Rainbow.jpg");
@@ -51,7 +51,7 @@ namespace EdgeAndFilterTest
         public void CrazyFilterTestOutputPicture()
         {
             //Substitute for the ManagerFilter
-            var filterInterface = Substitute.For<ManagerFilter>();
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Crazy.jpg");
@@ -64,7 +64,7 @@ namespace EdgeAndFilterTest
         public void TestIfImageWidthIsSmallerThan4Pixels()
         {
             //Substitute for the ManagerFilter
-            var filterInterface = Substitute.For<ManagerFilter>();
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
 
@@ -76,7 +76,7 @@ namespace EdgeAndFilterTest
         [TestMethod]
         public void TestColorIfWidthNotDisibleBy4()
         {
-            var filterInterface = Substitute.For<ManagerFilter>();
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
 
@@ -101,6 +101,28 @@ namespace EdgeAndFilterTest
             Assert.AreEqual(unifiedTestBitmapColor.GetPixel(pixelToCheck, 1), receivedAfterTest.GetPixel(pixelToCheck, 1));
         }
 
+        //Testing the Crazy filter checking the error and verifying that if there is an error we get null
+        [TestMethod]
+        public void TestMethodCrazyfilterException()
+        {
+            //Substitute for the managerFilter
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
 
+            Bitmap filteredBitmap = filterInterface.CrazyFilter(null);
+
+            Assert.AreEqual(null, filteredBitmap);
+        }
+
+        //Testing the Rainbow filter checking the error and verifying that if there is an error we get null
+        [TestMethod]
+        public void TestMethodRainbowfilterException()
+        {
+            //Substitute for the managerFilter
+            InterfaceFilter filterInterface = Substitute.For<ManagerFilter>();
+
+            Bitmap filteredBitmap = filterInterface.RainbowFilter(null);
+
+            Assert.AreEqual(null, filteredBitmap);
+        }
     }
 }

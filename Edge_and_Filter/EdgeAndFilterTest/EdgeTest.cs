@@ -42,7 +42,7 @@ namespace EdgeAndFilterTest
         public void Laplacian3x3FilterTestOutputPicture()
         {
             //Substitute for ManagerEdge
-            var edgeInterface = Substitute.For<ManagerEdge>();
+            InterfaceEdge edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian3x3.jpg");
@@ -55,13 +55,44 @@ namespace EdgeAndFilterTest
         public void Laplacian5x5FilterTestOutputPicture()
         {
             //Substitute for ManagerEdge
-            var edgeInterface = Substitute.For<ManagerEdge>();
+            InterfaceEdge edgeInterface = Substitute.For<ManagerEdge>();
 
             Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
             Bitmap bitmapForVerification = RetrieveImage.RetrieveImageFromPath("Laplacian5x5.jpg");
             Bitmap filteredBitmap = edgeInterface.Lalpacian5x5(new Bitmap(originalBitmap));
 
             Assert.IsTrue(RetrieveImage.Equals(bitmapForVerification, filteredBitmap));
+        }
+
+        //Testing the edge Convolution filter method with a null matrix
+        [TestMethod]
+        public void ConvolutionFilterTestOfExceptionWithMatrix()
+        {
+            //Substitute for ManagerEdge
+            InterfaceEdge edgeInterface = Substitute.For<ManagerEdge>();
+            //Getting the original image to be sent
+            Bitmap originalBitmap = RetrieveImage.RetrieveOriginalPicture();
+            //Bitmap bitmapForVerification retrieved using the ConvolutionFilter method with a matrix null
+            Bitmap filteredBitmap = edgeInterface.ConvolutionFilter(originalBitmap, null, 1.0, 0);
+
+            Assert.AreEqual(null, filteredBitmap);
+        }
+
+        //Testing the edge Convolution filter method with a null bitmap
+        [TestMethod]
+        public void ConvolutionFilterTestOfExceptionWithBitmap()
+        {
+            //Substitute for ManagerEdge
+            InterfaceEdge edgeInterface = Substitute.For<ManagerEdge>();
+            //Getting the original image to be sent
+            Bitmap originalBitmap = null;
+            //Bitmap bitmapForVerification retrieved using the ConvolutionFilter method with a originalBitmap null
+            Bitmap filteredBitmap = edgeInterface.ConvolutionFilter(originalBitmap, new double[,]
+                { { -1, -1, -1,  },
+                  { -1,  8, -1,  },
+                  { -1, -1, -1,  }, }, 1.0, 0);
+
+            Assert.AreEqual(null, filteredBitmap);
         }
     }
 }
